@@ -15,7 +15,7 @@ Insert Sub - Project Code - Trailer is wrong
     [Documentation]
     [Tags]    ZUTBLCOLSPRJ
     Remove file on FTP  ${File2}  ${LogFile2}
-    Put file to Host For Run  ${File2}
+    Put file to Host For Run  ${File2}  ${LocalPath}
 
     ${output}=      Execute Command  ${Dir}/Batch/ZTCG_RUN.sh ${Dir} ${table2}
     Should Contain  ${output}  INVALID RECORD NUMBER
