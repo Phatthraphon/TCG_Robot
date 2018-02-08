@@ -15,7 +15,12 @@ ${KeyGBL}       ZCOLPRJ
 Insert Project Code over five digit
     [Documentation]    Compare data ZUTBLCOLPRJ include header
     [Tags]    ZUTBLCOLPRJ
-    Copy File and Insert    ${File1}  ${LogFile1}  ${Table1}
+    Remove file on FTP  ${File1}  ${LogFile1}
+    Kill Globle DATA    ${KeyGBL}
+    Put file to Host For Run  ${File1}
+
+    ${output}=      Execute Command  ${Dir}/Batch/ZTCG_RUN.sh ${Dir} ${table1}
+    Should Contain  ${output}  Run procedure in profile complete
 
     file should exist  ${CBSPathFrom}/${LogFile1}
     ${output}=       Execute Command  cat ${CBSPathFrom}/${LogFile1}

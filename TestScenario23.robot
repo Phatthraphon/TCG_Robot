@@ -15,7 +15,13 @@ ${KeyGBL}       ZCOLSPRJ
 Insert Sub - Project Code is Null
     [Documentation]    Compare data ZUTBLCOLPRJ include header
     [Tags]    ZUTBLCOLSPRJ
-    Copy File and Insert    ${File2}  ${LogFile2}  ${Table2}
+
+    Remove file on FTP  ${File2}  ${LogFile2}
+    Kill Globle DATA    ${KeyGBL}
+    Put file to Host For Run  ${File2}
+
+    ${output}=      Execute Command  ${Dir}/Batch/ZTCG_RUN.sh ${Dir} ${table2}
+    Should Contain  ${output}  Run procedure in profile complete
 
     file should exist  ${CBSPathFrom}/${LogFile2}
     ${output}=       Execute Command  cat ${CBSPathFrom}/${LogFile2}
