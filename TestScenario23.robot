@@ -9,7 +9,6 @@ Suite Teardown         Close All Connections
 *** Variables ***
 ${LocalPath}    file/23
 ${PRJPath}    file/11
-${KeyGBL}       ZCOLSPRJ
 
 *** Test Cases ***
 
@@ -18,7 +17,8 @@ Insert Sub - Project Code is Null
     [Tags]    ZUTBLCOLSPRJ
 
     Remove file on FTP  ${File2}  ${LogFile2}
-    Kill Globle DATA    ${KeyGBL}
+    Kill Globle DATA    ZCOLPRJ
+    Kill Globle DATA    ZCOLSPRJ
     Put file to Host For Run  ${File1}  ${PRJPath}
     Put file to Host For Run  ${File2}  ${LocalPath}
 
