@@ -11,7 +11,7 @@ ${LocalPath}    file/14
 
 *** Test Cases ***
 
-Insert Project Code - Tailer is wrong
+Insert Project Code - Trailer is wrong
     [Documentation]
     [Tags]    ZUTBLCOLPRJ
     Remove file on FTP  ${File1}  ${LogFile1}
