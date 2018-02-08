@@ -8,6 +8,7 @@ Suite Teardown         Close All Connections
 
 *** Variables ***
 ${LocalPath}    file/23
+${PRJPath}    file/11
 ${KeyGBL}       ZCOLSPRJ
 
 *** Test Cases ***
@@ -18,7 +19,11 @@ Insert Sub - Project Code is Null
 
     Remove file on FTP  ${File2}  ${LogFile2}
     Kill Globle DATA    ${KeyGBL}
-    Put file to Host For Run  ${File2}
+    Put file to Host For Run  ${File1}  ${PRJPath}
+    Put file to Host For Run  ${File2}  ${LocalPath}
+
+    ${output}=      Execute Command  ${Dir}/Batch/ZTCG_RUN.sh ${Dir} ${table1}
+    Should Contain  ${output}  Run procedure in profile complete
 
     ${output}=      Execute Command  ${Dir}/Batch/ZTCG_RUN.sh ${Dir} ${table2}
     Should Contain  ${output}  Run procedure in profile complete

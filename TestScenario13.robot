@@ -17,7 +17,7 @@ Insert Project Code over five digit
     [Tags]    ZUTBLCOLPRJ
     Remove file on FTP  ${File1}  ${LogFile1}
     Kill Globle DATA    ${KeyGBL}
-    Put file to Host For Run  ${File1}
+    Put file to Host For Run  ${File1}  ${LocalPath}
 
     ${output}=      Execute Command  ${Dir}/Batch/ZTCG_RUN.sh ${Dir} ${table1}
     Should Contain  ${output}  Run procedure in profile complete
