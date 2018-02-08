@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20180208 12:06:41.207" generator="Robot 3.0.2 (Python 2.7.8 on win32)">
-<suite source="C:\robot\TCG_Test\TCG\TestScenario6.robot" id="s1" name="TestScenario6">
+<robot generated="20180208 15:04:33.082" generator="Robot 3.0.2 (Python 2.7.14 on win32)">
+<suite source="C:\robot\TCG_Robot\TestScenario7.robot" id="s1" name="TestScenario7">
 <kw type="setup" name="Open Connection And Log In" library="Keywords">
 <kw name="Open Connection" library="SSHLibrary">
 <doc>Opens a new SSH connection to the given `host` and `port`.</doc>
 <arguments>
 <arg>${HostIP}</arg>
 </arguments>
-<status status="PASS" endtime="20180208 12:06:41.626" starttime="20180208 12:06:41.626"></status>
+<status status="PASS" endtime="20180208 15:04:33.245" starttime="20180208 15:04:33.244"></status>
 </kw>
 <kw name="Login" library="SSHLibrary">
 <doc>Logs into the SSH server with the given `username` and `password`.</doc>
@@ -15,9 +15,9 @@
 <arg>${HostUser}</arg>
 <arg>${HostPass}</arg>
 </arguments>
-<msg timestamp="20180208 12:06:41.626" level="INFO">Logging into '10.251.87.85:22' as 'iistadm'.</msg>
-<msg timestamp="20180208 12:06:43.002" level="INFO">Read output: Last unsuccessful login: Wed Feb  7 17:24:15 ICT 2018 on ssh from 10.4.31.250
-Last login: Thu Feb  8 12:06:17 ICT 2018 on ssh from 10.4.31.250
+<msg timestamp="20180208 15:04:33.245" level="INFO">Logging into '10.251.87.85:22' as 'iistadm'.</msg>
+<msg timestamp="20180208 15:04:34.432" level="INFO">Read output: Last unsuccessful login: Wed Feb  7 17:24:15 ICT 2018 on ssh from 10.4.31.250
+Last login: Thu Feb  8 15:03:49 ICT 2018 on ssh from 10.4.31.250
 
 
 ******************************************************************************************************
@@ -30,112 +30,136 @@ monitored for administrative and security reasons.  By proceeding, you consent t
 ******************************************************************************************************
 [YOU HAVE NEW MAIL]
 cbssitdb:/gsbiist$</msg>
-<status status="PASS" endtime="20180208 12:06:43.002" starttime="20180208 12:06:41.626"></status>
+<status status="PASS" endtime="20180208 15:04:34.432" starttime="20180208 15:04:33.245"></status>
 </kw>
-<status status="PASS" endtime="20180208 12:06:43.002" starttime="20180208 12:06:41.626"></status>
+<status status="PASS" endtime="20180208 15:04:34.433" starttime="20180208 15:04:33.244"></status>
 </kw>
-<test id="s1-t1" name="Insert Sub - Project Code is Null">
-<kw name="Copy File and Insert" library="Keywords">
-<doc>Copy file to ftp and run get file and insert data to table</doc>
-<arguments>
-<arg>${File2}</arg>
-<arg>${LogFile2}</arg>
-<arg>${Table2}</arg>
-</arguments>
+<test id="s1-t1" name="Insert Project Code - Tailer is wrong">
 <kw name="Remove file on FTP" library="Keywords">
 <arguments>
-<arg>${file}</arg>
-<arg>${logFile}</arg>
+<arg>${File1}</arg>
+<arg>${LogFile1}</arg>
 </arguments>
 <kw name="Start Command" library="SSHLibrary">
 <doc>Starts execution of the `command` on the remote machine and returns immediately.</doc>
 <arguments>
 <arg>echo "rm ${FTPPathTo}/${file}" &gt; ${TCGPath}/${SCRIPT_FILE_RM}</arg>
 </arguments>
-<msg timestamp="20180208 12:06:43.002" level="INFO">Starting command 'echo "rm TCG/ToCBS/ZUTBLCOLSPRJ_20180208.txt" &gt; /gsbiist/spool/extract/TCG/rm_ftp.txt'.</msg>
-<status status="PASS" endtime="20180208 12:06:43.033" starttime="20180208 12:06:43.002"></status>
+<msg timestamp="20180208 15:04:34.436" level="INFO">Starting command 'echo "rm TCG/ToCBS/ZUTBLCOLPRJ_20180208.txt" &gt; /gsbiist/spool/extract/TCG/rm_ftp.txt'.</msg>
+<status status="PASS" endtime="20180208 15:04:34.454" starttime="20180208 15:04:34.436"></status>
 </kw>
 <kw name="Start Command" library="SSHLibrary">
 <doc>Starts execution of the `command` on the remote machine and returns immediately.</doc>
 <arguments>
 <arg>echo "rm ${FTPPathFrom}/${logFile}" &gt;&gt; ${TCGPath}/${SCRIPT_FILE_RM}</arg>
 </arguments>
-<msg timestamp="20180208 12:06:43.049" level="INFO">Starting command 'echo "rm TCG/FromCBS/ZUTBLCOLSPRJ_20180208.log" &gt;&gt; /gsbiist/spool/extract/TCG/rm_ftp.txt'.</msg>
-<status status="PASS" endtime="20180208 12:06:43.127" starttime="20180208 12:06:43.033"></status>
+<msg timestamp="20180208 15:04:34.455" level="INFO">Starting command 'echo "rm TCG/FromCBS/ZUTBLCOLPRJ_20180208.log" &gt;&gt; /gsbiist/spool/extract/TCG/rm_ftp.txt'.</msg>
+<status status="PASS" endtime="20180208 15:04:34.522" starttime="20180208 15:04:34.455"></status>
 </kw>
 <kw name="Start Command" library="SSHLibrary">
 <doc>Starts execution of the `command` on the remote machine and returns immediately.</doc>
 <arguments>
 <arg>echo "exit" &gt;&gt; ${TCGPath}/${SCRIPT_FILE_RM}</arg>
 </arguments>
-<msg timestamp="20180208 12:06:43.127" level="INFO">Starting command 'echo "exit" &gt;&gt; /gsbiist/spool/extract/TCG/rm_ftp.txt'.</msg>
-<status status="PASS" endtime="20180208 12:06:43.221" starttime="20180208 12:06:43.127"></status>
+<msg timestamp="20180208 15:04:34.525" level="INFO">Starting command 'echo "exit" &gt;&gt; /gsbiist/spool/extract/TCG/rm_ftp.txt'.</msg>
+<status status="PASS" endtime="20180208 15:04:34.601" starttime="20180208 15:04:34.524"></status>
 </kw>
 <kw name="Start Command" library="SSHLibrary">
 <doc>Starts execution of the `command` on the remote machine and returns immediately.</doc>
 <arguments>
 <arg>sftp -b ${TCGPath}/${SCRIPT_FILE_RM} ${FTPHostUser}@${FTPIP}</arg>
 </arguments>
-<msg timestamp="20180208 12:06:43.221" level="INFO">Starting command 'sftp -b /gsbiist/spool/extract/TCG/rm_ftp.txt cbsist@10.20.6.58'.</msg>
-<status status="PASS" endtime="20180208 12:06:43.283" starttime="20180208 12:06:43.221"></status>
+<msg timestamp="20180208 15:04:34.605" level="INFO">Starting command 'sftp -b /gsbiist/spool/extract/TCG/rm_ftp.txt cbsist@10.20.6.58'.</msg>
+<status status="PASS" endtime="20180208 15:04:34.685" starttime="20180208 15:04:34.603"></status>
 </kw>
 <kw name="Start Command" library="SSHLibrary">
 <doc>Starts execution of the `command` on the remote machine and returns immediately.</doc>
 <arguments>
 <arg>rm ${TCGPath}/${file}</arg>
 </arguments>
-<msg timestamp="20180208 12:06:43.299" level="INFO">Starting command 'rm /gsbiist/spool/extract/TCG/ZUTBLCOLSPRJ_20180208.txt'.</msg>
-<status status="PASS" endtime="20180208 12:06:43.362" starttime="20180208 12:06:43.299"></status>
+<msg timestamp="20180208 15:04:34.686" level="INFO">Starting command 'rm /gsbiist/spool/extract/TCG/ZUTBLCOLPRJ_20180208.txt'.</msg>
+<status status="PASS" endtime="20180208 15:04:34.705" starttime="20180208 15:04:34.685"></status>
 </kw>
 <kw name="Start Command" library="SSHLibrary">
 <doc>Starts execution of the `command` on the remote machine and returns immediately.</doc>
 <arguments>
 <arg>rm ${CBSPathTo}/${file}</arg>
 </arguments>
-<msg timestamp="20180208 12:06:43.362" level="INFO">Starting command 'rm /gsbiist/spool/extract/TCG/ToCBS/ZUTBLCOLSPRJ_20180208.txt'.</msg>
-<status status="PASS" endtime="20180208 12:06:43.424" starttime="20180208 12:06:43.362"></status>
+<msg timestamp="20180208 15:04:34.709" level="INFO">Starting command 'rm /gsbiist/spool/extract/TCG/ToCBS/ZUTBLCOLPRJ_20180208.txt'.</msg>
+<status status="PASS" endtime="20180208 15:04:34.784" starttime="20180208 15:04:34.707"></status>
 </kw>
 <kw name="Start Command" library="SSHLibrary">
 <doc>Starts execution of the `command` on the remote machine and returns immediately.</doc>
 <arguments>
 <arg>rm ${CBSPathFrom}/${logFile}</arg>
 </arguments>
-<msg timestamp="20180208 12:06:43.440" level="INFO">Starting command 'rm /gsbiist/spool/extract/TCG/FromCBS/ZUTBLCOLSPRJ_20180208.log'.</msg>
-<status status="PASS" endtime="20180208 12:06:43.487" starttime="20180208 12:06:43.424"></status>
+<msg timestamp="20180208 15:04:34.785" level="INFO">Starting command 'rm /gsbiist/spool/extract/TCG/FromCBS/ZUTBLCOLPRJ_20180208.log'.</msg>
+<status status="PASS" endtime="20180208 15:04:34.823" starttime="20180208 15:04:34.784"></status>
 </kw>
 <kw name="Start Command" library="SSHLibrary">
 <doc>Starts execution of the `command` on the remote machine and returns immediately.</doc>
 <arguments>
 <arg>rm ${TCGPath}/${file}</arg>
 </arguments>
-<msg timestamp="20180208 12:06:43.487" level="INFO">Starting command 'rm /gsbiist/spool/extract/TCG/ZUTBLCOLSPRJ_20180208.txt'.</msg>
-<status status="PASS" endtime="20180208 12:06:43.612" starttime="20180208 12:06:43.487"></status>
+<msg timestamp="20180208 15:04:34.826" level="INFO">Starting command 'rm /gsbiist/spool/extract/TCG/ZUTBLCOLPRJ_20180208.txt'.</msg>
+<status status="PASS" endtime="20180208 15:04:34.903" starttime="20180208 15:04:34.824"></status>
 </kw>
 <kw name="Start Command" library="SSHLibrary">
 <doc>Starts execution of the `command` on the remote machine and returns immediately.</doc>
 <arguments>
 <arg>rm ${TCGPath}/${SCRIPT_FILE_RM}</arg>
 </arguments>
-<msg timestamp="20180208 12:06:43.612" level="INFO">Starting command 'rm /gsbiist/spool/extract/TCG/rm_ftp.txt'.</msg>
-<status status="PASS" endtime="20180208 12:06:43.674" starttime="20180208 12:06:43.612"></status>
+<msg timestamp="20180208 15:04:34.906" level="INFO">Starting command 'rm /gsbiist/spool/extract/TCG/rm_ftp.txt'.</msg>
+<status status="PASS" endtime="20180208 15:04:35.008" starttime="20180208 15:04:34.905"></status>
 </kw>
 <kw name="Start Command" library="SSHLibrary">
 <doc>Starts execution of the `command` on the remote machine and returns immediately.</doc>
 <arguments>
 <arg>rm ${TCGPath}/${SCRIPT_FILE_PUT}</arg>
 </arguments>
-<msg timestamp="20180208 12:06:43.690" level="INFO">Starting command 'rm /gsbiist/spool/extract/TCG/put_ftp.txt'.</msg>
-<status status="PASS" endtime="20180208 12:06:43.768" starttime="20180208 12:06:43.674"></status>
+<msg timestamp="20180208 15:04:35.009" level="INFO">Starting command 'rm /gsbiist/spool/extract/TCG/put_ftp.txt'.</msg>
+<status status="PASS" endtime="20180208 15:04:35.076" starttime="20180208 15:04:35.009"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>1s</arg>
 </arguments>
-<msg timestamp="20180208 12:06:44.778" level="INFO">Slept 1 second</msg>
-<status status="PASS" endtime="20180208 12:06:44.778" starttime="20180208 12:06:43.768"></status>
+<msg timestamp="20180208 15:04:36.077" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20180208 15:04:36.077" starttime="20180208 15:04:35.076"></status>
 </kw>
-<status status="PASS" endtime="20180208 12:06:44.778" starttime="20180208 12:06:43.002"></status>
+<status status="PASS" endtime="20180208 15:04:36.077" starttime="20180208 15:04:34.435"></status>
+</kw>
+<kw name="Put file to Host For Run" library="Keywords">
+<arguments>
+<arg>${File1}</arg>
+</arguments>
+<kw name="Put File" library="SSHLibrary">
+<doc>Uploads file(s) from the local machine to the remote machine.</doc>
+<arguments>
+<arg>${LocalPath}/${file}</arg>
+<arg>${CBSPathTo}</arg>
+</arguments>
+<msg timestamp="20180208 15:04:36.126" level="INFO">[chan 11] Opened sftp connection (server version 3)</msg>
+<msg timestamp="20180208 15:04:36.260" level="INFO">'file\07\ZUTBLCOLPRJ_20180208.txt' -&gt; '/gsbiist/spool/extract/TCG/ToCBS/ZUTBLCOLPRJ_20180208.txt'</msg>
+<status status="PASS" endtime="20180208 15:04:36.261" starttime="20180208 15:04:36.078"></status>
+</kw>
+<kw name="File Should Exist" library="SSHLibrary">
+<doc>Fails if the given `path` does NOT point to an existing file.</doc>
+<arguments>
+<arg>${CBSPathTo}/${file}</arg>
+</arguments>
+<status status="PASS" endtime="20180208 15:04:36.284" starttime="20180208 15:04:36.261"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20180208 15:04:37.285" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20180208 15:04:37.285" starttime="20180208 15:04:36.284"></status>
+</kw>
+<status status="PASS" endtime="20180208 15:04:37.286" starttime="20180208 15:04:36.077"></status>
 </kw>
 <kw name="Kill Globle DATA" library="Keywords">
 <arguments>
@@ -146,252 +170,142 @@ cbssitdb:/gsbiist$</msg>
 <arguments>
 <arg>dm</arg>
 </arguments>
-<msg timestamp="20180208 12:06:44.778" level="INFO">dm</msg>
-<status status="PASS" endtime="20180208 12:06:44.778" starttime="20180208 12:06:44.778"></status>
+<msg timestamp="20180208 15:04:37.297" level="INFO">dm</msg>
+<status status="PASS" endtime="20180208 15:04:37.298" starttime="20180208 15:04:37.287"></status>
 </kw>
 <kw name="Write" library="SSHLibrary">
 <doc>Writes the given `text` on the remote machine and appends a newline.</doc>
 <arguments>
 <arg>k ^UTBL("${Key}")</arg>
 </arguments>
-<msg timestamp="20180208 12:06:44.794" level="INFO">k ^UTBL("ZCOLSPRJ")</msg>
-<status status="PASS" endtime="20180208 12:06:44.794" starttime="20180208 12:06:44.794"></status>
+<msg timestamp="20180208 15:04:37.307" level="INFO">k ^UTBL("ZCOLPRJ")</msg>
+<status status="PASS" endtime="20180208 15:04:37.307" starttime="20180208 15:04:37.298"></status>
 </kw>
 <kw name="Read Until" library="SSHLibrary">
 <doc>Consumes and returns the server output until `expected` is encountered.</doc>
 <arguments>
 <arg>GTM&gt;</arg>
 </arguments>
-<msg timestamp="20180208 12:06:45.013" level="INFO">GTM&gt;</msg>
-<status status="PASS" endtime="20180208 12:06:45.013" starttime="20180208 12:06:44.794"></status>
+<msg timestamp="20180208 15:04:37.514" level="INFO">GTM&gt;</msg>
+<status status="PASS" endtime="20180208 15:04:37.514" starttime="20180208 15:04:37.307"></status>
 </kw>
 <kw name="Write" library="SSHLibrary">
 <doc>Writes the given `text` on the remote machine and appends a newline.</doc>
 <arguments>
 <arg>H</arg>
 </arguments>
-<msg timestamp="20180208 12:06:45.028" level="INFO">=k[C$&lt;2&gt; [C$&lt;2&gt;^[C$&lt;2&gt;U[C$&lt;2&gt;T[C$&lt;2&gt;B[C$&lt;2&gt;L[C$&lt;2&gt;([C$&lt;2&gt;"[C$&lt;2&gt;Z[C$&lt;2&gt;C[C$&lt;2&gt;O[C$&lt;2&gt;L[C$&lt;2&gt;S[C$&lt;2&gt;P[C$&lt;2&gt;R[C$&lt;2&gt;J[C$&lt;2&gt;"[C$&lt;2&gt;)[C$&lt;2&gt;&gt;</msg>
-<status status="PASS" endtime="20180208 12:06:45.028" starttime="20180208 12:06:45.028"></status>
+<msg timestamp="20180208 15:04:37.534" level="INFO">=k[C$&lt;2&gt; [C$&lt;2&gt;^[C$&lt;2&gt;U[C$&lt;2&gt;T[C$&lt;2&gt;B[C$&lt;2&gt;L[C$&lt;2&gt;([C$&lt;2&gt;"[C$&lt;2&gt;Z[C$&lt;2&gt;C[C$&lt;2&gt;O[C$&lt;2&gt;L[C$&lt;2&gt;P[C$&lt;2&gt;R[C$&lt;2&gt;J[C$&lt;2&gt;"[C$&lt;2&gt;)[C$&lt;2&gt;&gt;</msg>
+<status status="PASS" endtime="20180208 15:04:37.534" starttime="20180208 15:04:37.515"></status>
 </kw>
-<status status="PASS" endtime="20180208 12:06:45.028" starttime="20180208 12:06:44.778"></status>
-</kw>
-<kw name="Put file to Host" library="Keywords">
-<arguments>
-<arg>${file}</arg>
-</arguments>
-<kw name="Put File" library="SSHLibrary">
-<doc>Uploads file(s) from the local machine to the remote machine.</doc>
-<arguments>
-<arg>${LocalPath}/${file}</arg>
-<arg>${TCGPath}</arg>
-</arguments>
-<msg timestamp="20180208 12:06:45.075" level="INFO">[chan 11] Opened sftp connection (server version 3)</msg>
-<msg timestamp="20180208 12:06:45.153" level="INFO">'file\06\ZUTBLCOLSPRJ_20180208.txt' -&gt; '/gsbiist/spool/extract/TCG/ZUTBLCOLSPRJ_20180208.txt'</msg>
-<status status="PASS" endtime="20180208 12:06:45.153" starttime="20180208 12:06:45.044"></status>
-</kw>
-<kw name="File Should Exist" library="SSHLibrary">
-<doc>Fails if the given `path` does NOT point to an existing file.</doc>
-<arguments>
-<arg>${TCGPath}/${file}</arg>
-</arguments>
-<status status="PASS" endtime="20180208 12:06:45.169" starttime="20180208 12:06:45.153"></status>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>1s</arg>
-</arguments>
-<msg timestamp="20180208 12:06:46.169" level="INFO">Slept 1 second</msg>
-<status status="PASS" endtime="20180208 12:06:46.169" starttime="20180208 12:06:45.169"></status>
-</kw>
-<status status="PASS" endtime="20180208 12:06:46.169" starttime="20180208 12:06:45.028"></status>
-</kw>
-<kw name="Put file to FTP" library="Keywords">
-<arguments>
-<arg>${file}</arg>
-</arguments>
-<kw name="Start Command" library="SSHLibrary">
-<doc>Starts execution of the `command` on the remote machine and returns immediately.</doc>
-<arguments>
-<arg>echo "lcd ${TCGPath}" &gt; ${TCGPath}/${SCRIPT_FILE_PUT}</arg>
-</arguments>
-<msg timestamp="20180208 12:06:46.169" level="INFO">Starting command 'echo "lcd /gsbiist/spool/extract/TCG" &gt; /gsbiist/spool/extract/TCG/put_ftp.txt'.</msg>
-<status status="PASS" endtime="20180208 12:06:46.185" starttime="20180208 12:06:46.169"></status>
-</kw>
-<kw name="Start Command" library="SSHLibrary">
-<doc>Starts execution of the `command` on the remote machine and returns immediately.</doc>
-<arguments>
-<arg>echo "put ${TCGPath}/${file} ${FTPPathTo}/${file}" &gt;&gt; ${TCGPath}/${SCRIPT_FILE_PUT}</arg>
-</arguments>
-<msg timestamp="20180208 12:06:46.200" level="INFO">Starting command 'echo "put /gsbiist/spool/extract/TCG/ZUTBLCOLSPRJ_20180208.txt TCG/ToCBS/ZUTBLCOLSPRJ_20180208.txt" &gt;&gt; /gsbiist/spool/extract/TCG/put_ftp.txt'.</msg>
-<status status="PASS" endtime="20180208 12:06:46.279" starttime="20180208 12:06:46.200"></status>
-</kw>
-<kw name="Start Command" library="SSHLibrary">
-<doc>Starts execution of the `command` on the remote machine and returns immediately.</doc>
-<arguments>
-<arg>echo "exit" &gt;&gt; ${TCGPath}/${SCRIPT_FILE_PUT}</arg>
-</arguments>
-<msg timestamp="20180208 12:06:46.294" level="INFO">Starting command 'echo "exit" &gt;&gt; /gsbiist/spool/extract/TCG/put_ftp.txt'.</msg>
-<status status="PASS" endtime="20180208 12:06:46.357" starttime="20180208 12:06:46.279"></status>
-</kw>
-<kw name="Start Command" library="SSHLibrary">
-<doc>Starts execution of the `command` on the remote machine and returns immediately.</doc>
-<arguments>
-<arg>sftp -b ${TCGPath}/${SCRIPT_FILE_PUT} ${FTPHostUser}@${FTPIP}</arg>
-</arguments>
-<msg timestamp="20180208 12:06:46.372" level="INFO">Starting command 'sftp -b /gsbiist/spool/extract/TCG/put_ftp.txt cbsist@10.20.6.58'.</msg>
-<status status="PASS" endtime="20180208 12:06:46.404" starttime="20180208 12:06:46.372"></status>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>1s</arg>
-</arguments>
-<msg timestamp="20180208 12:06:47.404" level="INFO">Slept 1 second</msg>
-<status status="PASS" endtime="20180208 12:06:47.404" starttime="20180208 12:06:46.404"></status>
-</kw>
-<status status="PASS" endtime="20180208 12:06:47.404" starttime="20180208 12:06:46.169"></status>
+<status status="PASS" endtime="20180208 15:04:37.535" starttime="20180208 15:04:37.286"></status>
 </kw>
 <kw name="Execute Command" library="SSHLibrary">
 <doc>Executes `command` on the remote machine and returns its outputs.</doc>
 <arguments>
-<arg>${Dir}/Batch/ZTCG_GET.sh ${Dir} ${table}</arg>
+<arg>${Dir}/Batch/ZTCG_RUN.sh ${Dir} ${table1}</arg>
 </arguments>
 <assign>
 <var>${output}</var>
 </assign>
-<msg timestamp="20180208 12:06:47.404" level="INFO">Executing command '/gsbiist/Batch/ZTCG_GET.sh /gsbiist ZUTBLCOLSPRJ'.</msg>
-<msg timestamp="20180208 12:06:47.857" level="INFO">Command exited with return code 0.</msg>
-<msg timestamp="20180208 12:06:47.857" level="INFO">${output} = Log : /tmp/ZTCG_GET_180208120638_IIST.log
-/tmp/ZTCG_GET_180208120638_IIST.log
-CONFIG_FILE: /gsbiist/Batch/Config/sftpserver_gsbiist.cfg
-SCRIPT_FILE: /tmp/ZTCG_GET_180208120638_IIST.sftp
-**************...</msg>
-<status status="PASS" endtime="20180208 12:06:47.857" starttime="20180208 12:06:47.404"></status>
-</kw>
-<kw name="Execute Command" library="SSHLibrary">
-<doc>Executes `command` on the remote machine and returns its outputs.</doc>
-<arguments>
-<arg>${Dir}/Batch/ZTCG_RUN.sh ${Dir} ${table}</arg>
-</arguments>
-<assign>
-<var>${output}</var>
-</assign>
-<msg timestamp="20180208 12:06:47.857" level="INFO">Executing command '/gsbiist/Batch/ZTCG_RUN.sh /gsbiist ZUTBLCOLSPRJ'.</msg>
-<msg timestamp="20180208 12:06:48.248" level="INFO">Command exited with return code 0.</msg>
-<msg timestamp="20180208 12:06:48.248" level="INFO">${output} = /tmp/ZTCG_180208120638_IIST.log
+<msg timestamp="20180208 15:04:37.535" level="INFO">Executing command '/gsbiist/Batch/ZTCG_RUN.sh /gsbiist ZUTBLCOLPRJ'.</msg>
+<msg timestamp="20180208 15:04:37.868" level="INFO">Command exited with return code 1.</msg>
+<msg timestamp="20180208 15:04:37.869" level="INFO">${output} = /tmp/ZTCG_180208150439_IIST.log
 *****************************************************************
-Start Date&amp;Time   = 18/02/08-12:06:38
+Start Date&amp;Time   = 18/02/08-15:04:39
 Businesse         = 20180208
 ***********************************...</msg>
-<status status="PASS" endtime="20180208 12:06:48.248" starttime="20180208 12:06:47.857"></status>
-</kw>
-<status status="PASS" endtime="20180208 12:06:48.248" starttime="20180208 12:06:43.002"></status>
-</kw>
-<kw name="File Should Exist" library="SSHLibrary">
-<doc>Fails if the given `path` does NOT point to an existing file.</doc>
-<arguments>
-<arg>${CBSPathFrom}/${LogFile2}</arg>
-</arguments>
-<status status="PASS" endtime="20180208 12:06:48.295" starttime="20180208 12:06:48.248"></status>
-</kw>
-<kw name="Execute Command" library="SSHLibrary">
-<doc>Executes `command` on the remote machine and returns its outputs.</doc>
-<arguments>
-<arg>cat ${CBSPathFrom}/${LogFile2}</arg>
-</arguments>
-<assign>
-<var>${output}</var>
-</assign>
-<msg timestamp="20180208 12:06:48.295" level="INFO">Executing command 'cat /gsbiist/spool/extract/TCG/FromCBS/ZUTBLCOLSPRJ_20180208.log'.</msg>
-<msg timestamp="20180208 12:06:48.326" level="INFO">Command exited with return code 0.</msg>
-<msg timestamp="20180208 12:06:48.326" level="INFO">${output} = D|00901||1St Micro Entrepreneurs 901|20180121|20180530|1000000.00|REJECT|Sub Project code invalid format
-T|1</msg>
-<status status="PASS" endtime="20180208 12:06:48.326" starttime="20180208 12:06:48.295"></status>
+<status status="PASS" endtime="20180208 15:04:37.869" starttime="20180208 15:04:37.535"></status>
 </kw>
 <kw name="Should Contain" library="BuiltIn">
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
 <arguments>
 <arg>${output}</arg>
-<arg>invalid format</arg>
+<arg>INVALID RECORD NUMBER</arg>
 </arguments>
-<status status="PASS" endtime="20180208 12:06:48.326" starttime="20180208 12:06:48.326"></status>
+<status status="PASS" endtime="20180208 15:04:37.869" starttime="20180208 15:04:37.869"></status>
 </kw>
-<kw name="Run SQL ZUTBLCOLSPRJ" library="Keywords">
+<kw name="File Should Not Exist" library="SSHLibrary">
+<doc>Fails if the given `path` points to an existing file.</doc>
+<arguments>
+<arg>${CBSPathFrom}/${LogFile1}</arg>
+</arguments>
+<status status="PASS" endtime="20180208 15:04:37.926" starttime="20180208 15:04:37.870"></status>
+</kw>
+<kw name="Run SQL ZUTBLCOLPRJ" library="Keywords">
 <kw name="Write" library="SSHLibrary">
 <doc>Writes the given `text` on the remote machine and appends a newline.</doc>
 <arguments>
 <arg>dm</arg>
 </arguments>
-<status status="PASS" endtime="20180208 12:06:48.326" starttime="20180208 12:06:48.326"></status>
+<status status="PASS" endtime="20180208 15:04:37.927" starttime="20180208 15:04:37.927"></status>
 </kw>
 <kw name="Write" library="SSHLibrary">
 <doc>Writes the given `text` on the remote machine and appends a newline.</doc>
 <arguments>
-<arg>D EXPORT^SQLOADER("select PROJCD,SUBCD,DESC,STARTDT,ENDDT,MAXALOC from ZUTBLCOLSPRJ","${TCGPath}/${File2}",0,124,1)</arg>
+<arg>D EXPORT^SQLOADER("select PROJCD,DESC from ZUTBLCOLPRJ","${TCGPath}/${File1}",0,124,1)</arg>
 </arguments>
-<msg timestamp="20180208 12:06:48.326" level="INFO">GTM&gt;=H[C$&lt;2&gt;&gt;</msg>
-<status status="PASS" endtime="20180208 12:06:48.326" starttime="20180208 12:06:48.326"></status>
+<msg timestamp="20180208 15:04:37.929" level="INFO">GTM&gt;=H[C$&lt;2&gt;&gt;</msg>
+<status status="PASS" endtime="20180208 15:04:37.929" starttime="20180208 15:04:37.928"></status>
 </kw>
 <kw name="Read Until" library="SSHLibrary">
 <doc>Consumes and returns the server output until `expected` is encountered.</doc>
 <arguments>
 <arg>GTM&gt;</arg>
 </arguments>
-<msg timestamp="20180208 12:06:48.560" level="INFO">cbssitdb:/gsbiist$ dm
+<msg timestamp="20180208 15:04:38.150" level="INFO">cbssitdb:/gsbiist$ dm
+D EXPORT^SQLOADER("select PROJCD,DESC from ZUTBLCOLPRJ","/gsbiist/spool/extract/TCG/ZUTBLCOLPRJ_20180208.txt",0,124,1)
 
 GTM&gt;</msg>
-<status status="PASS" endtime="20180208 12:06:48.576" starttime="20180208 12:06:48.326"></status>
+<status status="PASS" endtime="20180208 15:04:38.150" starttime="20180208 15:04:37.929"></status>
 </kw>
 <kw name="Write" library="SSHLibrary">
 <doc>Writes the given `text` on the remote machine and appends a newline.</doc>
 <arguments>
 <arg>H</arg>
 </arguments>
-<msg timestamp="20180208 12:06:48.763" level="INFO">=D[C$&lt;2&gt; [C$&lt;2&gt;E[C$&lt;2&gt;X[C$&lt;2&gt;P[C$&lt;2&gt;O[C$&lt;2&gt;R[C$&lt;2&gt;T[C$&lt;2&gt;^[C$&lt;2&gt;S[C$&lt;2&gt;Q[C$&lt;2&gt;L[C$&lt;2&gt;O[C$&lt;2&gt;A[C$&lt;2&gt;D[C$&lt;2&gt;E[C$&lt;2&gt;R[C$&lt;2&gt;([C$&lt;2&gt;"[C$&lt;2&gt;s[C$&lt;2&gt;e[C$&lt;2&gt;l[C$&lt;2&gt;e[C$&lt;2&gt;c[C$&lt;2&gt;t[C$&lt;2&gt; [C$&lt;2&gt;P[C$&lt;2&gt;R[C$&lt;2&gt;O[C$&lt;2&gt;J[C$&lt;2&gt;C[C$&lt;2&gt;D[C$&lt;2&gt;,[C$&lt;2&gt;S[C$&lt;2&gt;U[C$&lt;2&gt;B[C$&lt;2&gt;C[C$&lt;2&gt;D[C$&lt;2&gt;,[C$&lt;2&gt;D[C$&lt;2&gt;E[C$&lt;2&gt;S[C$&lt;2&gt;C[C$&lt;2&gt;,[C$&lt;2&gt;S[C$&lt;2&gt;T[C$&lt;2&gt;A[C$&lt;2&gt;R[C$&lt;2&gt;T[C$&lt;2&gt;D[C$&lt;2&gt;T[C$&lt;2&gt;,[C$&lt;2&gt;E[C$&lt;2&gt;N[C$&lt;2&gt;D[C$&lt;2&gt;D[C$&lt;2&gt;T[C$&lt;2&gt;,[C$&lt;2&gt;M[C$&lt;2&gt;A[C$&lt;2&gt;X[C$&lt;2&gt;A[C$&lt;2&gt;L[C$&lt;2&gt;O[C$&lt;2&gt;C[C$&lt;2&gt; [C$&lt;2&gt;f[C$&lt;2&gt;r[C$&lt;2&gt;o[C$&lt;2&gt;m[C$&lt;2&gt; [C$&lt;2&gt;Z[C$&lt;2&gt;U[C$&lt;2&gt;T[C$&lt;2&gt;B[C$&lt;2&gt;L</msg>
-<status status="PASS" endtime="20180208 12:06:48.763" starttime="20180208 12:06:48.576"></status>
+<msg timestamp="20180208 15:04:39.246" level="INFO">=D[C$&lt;2&gt; [C$&lt;2&gt;E[C$&lt;2&gt;X[C$&lt;2&gt;P[C$&lt;2&gt;O[C$&lt;2&gt;R[C$&lt;2&gt;T[C$&lt;2&gt;^[C$&lt;2&gt;S[C$&lt;2&gt;Q[C$&lt;2&gt;L[C$&lt;2&gt;O[C$&lt;2&gt;A[C$&lt;2&gt;D[C$&lt;2&gt;E[C$&lt;2&gt;R[C$&lt;2&gt;([C$&lt;2&gt;"[C$&lt;2&gt;s[C$&lt;2&gt;e[C$&lt;2&gt;l[C$&lt;2&gt;e[C$&lt;2&gt;c[C$&lt;2&gt;t[C$&lt;2&gt; [C$&lt;2&gt;P[C$&lt;2&gt;R[C$&lt;2&gt;O[C$&lt;2&gt;J[C$&lt;2&gt;C[C$&lt;2&gt;D[C$&lt;2&gt;,[C$&lt;2&gt;D[C$&lt;2&gt;E[C$&lt;2&gt;S[C$&lt;2&gt;C[C$&lt;2&gt; [C$&lt;2&gt;f[C$&lt;2&gt;r[C$&lt;2&gt;o[C$&lt;2&gt;m[C$&lt;2&gt; [C$&lt;2&gt;Z[C$&lt;2&gt;U[C$&lt;2&gt;T[C$&lt;2&gt;B[C$&lt;2&gt;L[C$&lt;2&gt;C[C$&lt;2&gt;O[C$&lt;2&gt;L[C$&lt;2&gt;P[C$&lt;2&gt;R[C$&lt;2&gt;J[C$&lt;2&gt;"[C$&lt;2&gt;,[C$&lt;2&gt;"[C$&lt;2&gt;/[C$&lt;2&gt;g[C$&lt;2&gt;s[C$&lt;2&gt;b[C$&lt;2&gt;i[C$&lt;2&gt;i[C$&lt;2&gt;s[C$&lt;2&gt;t[C$&lt;2&gt;/[C$&lt;2&gt;s[C$&lt;2&gt;p[C$&lt;2&gt;o[C$&lt;2&gt;o[C$&lt;2&gt;l[C$&lt;2&gt;/[C$&lt;2&gt;e[C$&lt;2&gt;x[C$&lt;2&gt;t[C$&lt;2&gt;r</msg>
+<status status="PASS" endtime="20180208 15:04:39.247" starttime="20180208 15:04:38.151"></status>
 </kw>
-<status status="PASS" endtime="20180208 12:06:48.763" starttime="20180208 12:06:48.326"></status>
+<status status="PASS" endtime="20180208 15:04:39.248" starttime="20180208 15:04:37.926"></status>
 </kw>
 <kw name="File Should Exist" library="SSHLibrary">
 <doc>Fails if the given `path` does NOT point to an existing file.</doc>
 <arguments>
-<arg>${TCGPath}/${File2}</arg>
+<arg>${TCGPath}/${File1}</arg>
 </arguments>
-<status status="PASS" endtime="20180208 12:06:48.779" starttime="20180208 12:06:48.763"></status>
+<status status="PASS" endtime="20180208 15:04:39.258" starttime="20180208 15:04:39.248"></status>
 </kw>
 <kw name="Execute Command" library="SSHLibrary">
 <doc>Executes `command` on the remote machine and returns its outputs.</doc>
 <arguments>
-<arg>sed -n '$=' ${TCGPath}/${File2}</arg>
+<arg>sed -n '$=' ${TCGPath}/${File1}</arg>
 </arguments>
 <assign>
 <var>${output}</var>
 </assign>
-<msg timestamp="20180208 12:06:48.779" level="INFO">Executing command 'sed -n '$=' /gsbiist/spool/extract/TCG/ZUTBLCOLSPRJ_20180208.txt'.</msg>
-<msg timestamp="20180208 12:06:48.826" level="INFO">Command exited with return code 0.</msg>
-<msg timestamp="20180208 12:06:48.826" level="INFO">${output} = </msg>
-<status status="PASS" endtime="20180208 12:06:48.826" starttime="20180208 12:06:48.779"></status>
+<msg timestamp="20180208 15:04:39.259" level="INFO">Executing command 'sed -n '$=' /gsbiist/spool/extract/TCG/ZUTBLCOLPRJ_20180208.txt'.</msg>
+<msg timestamp="20180208 15:04:39.290" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20180208 15:04:39.291" level="INFO">${output} = </msg>
+<status status="PASS" endtime="20180208 15:04:39.291" starttime="20180208 15:04:39.258"></status>
 </kw>
 <kw name="Should Be Empty" library="BuiltIn">
 <doc>Verifies that the given item is empty.</doc>
 <arguments>
 <arg>${output}</arg>
 </arguments>
-<msg timestamp="20180208 12:06:48.826" level="INFO">Length is 0</msg>
-<status status="PASS" endtime="20180208 12:06:48.826" starttime="20180208 12:06:48.826"></status>
+<msg timestamp="20180208 15:04:39.291" level="INFO">Length is 0</msg>
+<status status="PASS" endtime="20180208 15:04:39.291" starttime="20180208 15:04:39.291"></status>
 </kw>
-<doc>Compare data ZUTBLCOLPRJ include header</doc>
 <tags>
-<tag>ZUTBLCOLSPRJ</tag>
+<tag>ZUTBLCOLPRJ</tag>
 </tags>
-<status status="PASS" endtime="20180208 12:06:48.826" critical="yes" starttime="20180208 12:06:43.002"></status>
+<status status="PASS" endtime="20180208 15:04:39.292" critical="yes" starttime="20180208 15:04:34.433"></status>
 </test>
 <kw type="teardown" name="Close All Connections" library="SSHLibrary">
 <doc>Closes all open connections.</doc>
-<status status="PASS" endtime="20180208 12:06:48.857" starttime="20180208 12:06:48.826"></status>
+<status status="PASS" endtime="20180208 15:04:39.326" starttime="20180208 15:04:39.293"></status>
 </kw>
-<status status="PASS" endtime="20180208 12:06:48.857" starttime="20180208 12:06:41.207"></status>
+<status status="PASS" endtime="20180208 15:04:39.326" starttime="20180208 15:04:33.086"></status>
 </suite>
 <statistics>
 <total>
@@ -399,10 +313,10 @@ T|1</msg>
 <stat fail="0" pass="1">All Tests</stat>
 </total>
 <tag>
-<stat fail="0" pass="1">ZUTBLCOLSPRJ</stat>
+<stat fail="0" pass="1">ZUTBLCOLPRJ</stat>
 </tag>
 <suite>
-<stat fail="0" id="s1" name="TestScenario6" pass="1">TestScenario6</stat>
+<stat fail="0" id="s1" name="TestScenario7" pass="1">TestScenario7</stat>
 </suite>
 </statistics>
 <errors>

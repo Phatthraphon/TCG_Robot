@@ -14,6 +14,12 @@ Put file to Host
     file should exist  ${TCGPath}/${file}
     Sleep   1s
 
+Put file to Host For Run
+    [Arguments]    ${file}
+    Put File  ${LocalPath}/${file}     ${CBSPathTo}
+    file should exist  ${CBSPathTo}/${file}
+    Sleep   1s
+
 Put file to FTP
     [Arguments]    ${file}
     Start Command   echo "lcd ${TCGPath}" > ${TCGPath}/${SCRIPT_FILE_PUT}
