@@ -7,7 +7,7 @@ Suite Setup            Open Connection And log In
 Suite Teardown         Close All Connections
 
 *** Variables ***
-${LocalPath}    file/03
+${LocalPath}    file/12
 
 *** Test Cases ***
 

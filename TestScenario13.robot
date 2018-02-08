@@ -7,7 +7,7 @@ Suite Setup            Open Connection And log In
 Suite Teardown         Close All Connections
 
 *** Variables ***
-${LocalPath}    file/05
+${LocalPath}    file/13
 ${KeyGBL}       ZCOLPRJ
 
 *** Test Cases ***
@@ -19,7 +19,7 @@ Insert Project Code over five digit
 
     file should exist  ${CBSPathFrom}/${LogFile1}
     ${output}=       Execute Command  cat ${CBSPathFrom}/${LogFile1}
-    Should Contain  ${output}  REJECT
+    Should Contain  ${output}  invalid format
 
     Run SQL ZUTBLCOLPRJ
     file should exist  ${TCGPath}/${File1}

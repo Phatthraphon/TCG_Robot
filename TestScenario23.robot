@@ -7,7 +7,7 @@ Suite Setup            Open Connection And log In
 Suite Teardown         Close All Connections
 
 *** Variables ***
-${LocalPath}    file/06
+${LocalPath}    file/23
 ${KeyGBL}       ZCOLSPRJ
 
 *** Test Cases ***

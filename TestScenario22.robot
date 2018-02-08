@@ -7,7 +7,7 @@ Suite Setup            Open Connection And log In
 Suite Teardown         Close All Connections
 
 *** Variables ***
-${LocalPath}    file/04
+${LocalPath}    file/22
 ${FileTMP}    ${Table2}_20180207.txt
 ${LogTMP}    ${Table2}_20180207.log
 
