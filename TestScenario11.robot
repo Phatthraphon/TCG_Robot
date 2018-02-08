@@ -23,6 +23,7 @@ File on FTP ZUTBLCOLPRJ
     Put file to FTP     ${File1}
 
 Get ZUTBLCOLPRJ from FTP Server
+    [Documentation]    Get Input File ข้อมูลโครงการ ที่มี ไฟล์ Date ตรงกับวันที่รัน File
     [Tags]    ZUTBLCOLPRJ
     ${output}=      Execute Command  ${Dir}/Batch/ZTCG_GET.sh ${Dir} ${Table1}
     #log To Console      \n${output}
@@ -32,6 +33,7 @@ Get ZUTBLCOLPRJ from FTP Server
     Sleep   2s
 
 Insert data to ZUTBLCOLPRJ
+    [Documentation]    Run โปรแกรมเพื่ออัพเดทข้อมูลโครงการ กรณีจำนวน Record ตรงตามข้อมูล ใน Trailer
     [Tags]    ZUTBLCOLPRJ
     ${output}=      Execute Command  ${Dir}/Batch/ZTCG_RUN.sh ${Dir} ${Table1}
     #log To Console      \n${output}
@@ -43,8 +45,7 @@ Insert data to ZUTBLCOLPRJ
 
 Count Database ZUTBLCOLPRJ
     [Tags]    ZUTBLCOLPRJ
-
-    [Documentation]    Compare data ZUTBLCOLPRJ include header
+    [Documentation]    Run โปรแกรมเพื่ออัพเดทข้อมูลโครงการที่มีอยู่แล้ว กรณีที่ ส่งข้อมูลได้ครบถ้วนถูกต้องตรงตาม Format Layout
     Run SQL ZUTBLCOLPRJ
     file should exist  ${CBSPathTo}/${File1}
     #${wc1}=      Execute Command  sed -n '$=' ${CBSPathTo}/${File1}
@@ -58,7 +59,7 @@ Count Database ZUTBLCOLPRJ
     log To Console      \n${output}
 
 Upload log file ZUTBLCOLPRJ
-    [Documentation]    Upload file ZUTBLCOLPRJ to ftp
+    [Documentation]    สร้าง Output การอัพเดทโครงการ
     ${rc} =  Execute Command  ${Dir}/Batch/ZTCG_PUT.sh ${Dir} ${Table1}  return_stdout=False   return_rc=True
     Should Be Equal As Integers     ${rc}   0   # succeeded
 

@@ -13,7 +13,7 @@ ${PRJPath}    file/11
 *** Test Cases ***
 
 Insert Sub - Project Code is Null
-    [Documentation]    Compare data ZUTBLCOLPRJ include header
+    [Documentation]    Run โปรแกรมเพื่ออัพเดทข้อมูลโครงการย่อยที่มีอยู่แล้ว กรณีที่ ไม่ส่งข้อมูล Sub Project ID
     [Tags]    ZUTBLCOLSPRJ
 
     Remove file on FTP  ${File2}  ${LogFile2}

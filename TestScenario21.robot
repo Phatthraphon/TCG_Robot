@@ -18,18 +18,18 @@ Execute Command
     Kill Globle DATA  ZCOLSPRJ
     #${output2}=      Execute Command    /cbs/bin/sql.sh /gsbpvt ${sql} ${xxx}
     #log To Console      \n${output2}\n
-Execute Command 2
-
+Execute Command2
     Kill Globle DATA    ZCOLPRJ
     Put file to Host For Run  ${File1}  ${PRJPath}
     ${output}=      Execute Command  ${Dir}/Batch/ZTCG_RUN.sh ${Dir} ${table1}
 
 File on FTP ZUTBLCOLSPRJ
-    [Documentation]    Upload flie ZUTBLCOLSPRJ to ftp sever
+    [Documentation]
     Put file to Host    ${File2}
     Put file to FTP     ${File2}
 
 Get File ZUTBLCOLSPRJ from FTP Server
+    [Documentation]    Get Input File ข้อมูลโครงการย่อย ที่มี ไฟล์ Date ตรงกับวันที่รัน File
     [Tags]    ZUTBLCOLSPRJ
     ${output}=      Execute Command  ${Dir}/Batch/ZTCG_GET.sh ${Dir} ${Table2}
     #log To Console      \n${output}
@@ -39,6 +39,7 @@ Get File ZUTBLCOLSPRJ from FTP Server
     Sleep   2s
 
 Insert data to ZUTBLCOLSPRJ
+    [Documentation]   Run โปรแกรมเพื่ออัพเดทข้อมูลโครงการย่อย กรณีจำนวน Record ไม่ตรงตามข้อมูล ใน Trailer
     [Tags]    ZUTBLCOLSPRJ
     ${output}=      Execute Command  ${Dir}/Batch/ZTCG_RUN.sh ${Dir} ${Table2}
     file should exist  ${CBSPathFrom}/${LogFile2}
@@ -50,7 +51,7 @@ Insert data to ZUTBLCOLSPRJ
     Sleep   2s
 
 Count Database ZUTBLCOLSPRJ
-    [Documentation]    Compare log and database ZUTBLCOLSPRJ
+    [Documentation]    Run โปรแกรมเพื่ออัพเดทข้อมูลโครงการย่อยที่มีอยู่แล้ว กรณีที่ ส่งข้อมูลได้ครบถ้วนถูกต้องตรงตาม Format Layout
     Run SQL ZUTBLCOLSPRJ
     file should exist  ${CBSPathTo}/${File2}
     #${wc} =    Execute Command  sed -n '$=' ${CBSPathTo}/${File2}
@@ -66,7 +67,7 @@ Count Database ZUTBLCOLSPRJ
 
 Upload log file ZUTBLCOLSPRJ
     [Tags]    ZUTBLCOLSPRJ
-    [Documentation]    Upload file ZUTBLCOLSPRJ to ftp
+    [Documentation]    สร้าง Output การอัพเดทโครงการย่อย
 
     ${rc} =  Execute Command  ${Dir}/Batch/ZTCG_PUT.sh ${Dir} ${Table2}  return_stdout=False   return_rc=True
     Should Be Equal As Integers     ${rc}   0   # succeeded

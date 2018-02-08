@@ -12,8 +12,8 @@ ${KeyGBL}       ZCOLPRJ
 
 *** Test Cases ***
 
-Insert Project Code over five digit
-    [Documentation]    Compare data ZUTBLCOLPRJ include header
+Insert Project Code is null
+    [Documentation]    Run โปรแกรมเพื่ออัพเดทข้อมูลโครงการใหม่ กรณีไม่ส่งข้อมูล Project ID
     [Tags]    ZUTBLCOLPRJ
     Remove file on FTP  ${File1}  ${LogFile1}
     Kill Globle DATA    ${KeyGBL}

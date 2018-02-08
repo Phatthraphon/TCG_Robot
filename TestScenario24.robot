@@ -12,7 +12,7 @@ ${LocalPath}    file/24
 *** Test Cases ***
 
 Insert Sub - Project Code - Trailer is wrong
-    [Documentation]
+    [Documentation]   Run โปรแกรมเพื่ออัพเดทข้อมูลโครงการย่อย กรณีจำนวน Record ไม่ตรงตามข้อมูล ใน Trailer
     [Tags]    ZUTBLCOLSPRJ
     Remove file on FTP  ${File2}  ${LogFile2}
     Put file to Host For Run  ${File2}  ${LocalPath}

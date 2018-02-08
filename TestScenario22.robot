@@ -21,6 +21,7 @@ File on FTP ZUTBLCOLSPRJ
     Put file to FTP     ${FileTMP}
 
 Get Input File ข้อมูลโครงการย่อย ที่มี ไฟล์ Date ตรงกับวันที่รันFIle
+    [Documentation]   Get Input File ข้อมูลโครงการย่อย ที่มี ไฟล์ Date ไม่ตรงกับวันที่รัน File
     [Tags]    ZUTBLCOLSPRJ
     ${output}=      Execute Command  ${Dir}/Batch/ZTCG_GET.sh ${Dir} ${Table2}
     #log To Console      \n${output}
