@@ -8,17 +8,21 @@ Suite Teardown         Close All Connections
 
 *** Variables ***
 ${LocalPath}    file/21
+${PRJPath}    file/11
 
 *** Test Cases ***
 
 Execute Command
     [Documentation]    Test Connection and Remove old file
-    ${output}=    Execute Command    echo Hello SSHLibrary!
-    Should Be Equal    ${output}    Hello SSHLibrary!
     Remove file on FTP  ${File2}  ${LogFile2}
     Kill Globle DATA  ZCOLSPRJ
     #${output2}=      Execute Command    /cbs/bin/sql.sh /gsbpvt ${sql} ${xxx}
     #log To Console      \n${output2}\n
+Execute Command 2
+
+    Kill Globle DATA    ZCOLPRJ
+    Put file to Host For Run  ${File1}  ${PRJPath}
+    ${output}=      Execute Command  ${Dir}/Batch/ZTCG_RUN.sh ${Dir} ${table1}
 
 File on FTP ZUTBLCOLSPRJ
     [Documentation]    Upload flie ZUTBLCOLSPRJ to ftp sever

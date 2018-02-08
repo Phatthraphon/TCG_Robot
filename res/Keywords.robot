@@ -16,7 +16,7 @@ Put file to Host
 
 Put file to Host For Run
     [Arguments]    ${file}  ${Path}
-    Put File  ${Path}/${file}     ${CBSPathTo}
+    Put File  ${Path}/${file}  ${CBSPathTo}
     file should exist  ${CBSPathTo}/${file}
     Sleep   1s
 

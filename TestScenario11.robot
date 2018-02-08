@@ -14,8 +14,6 @@ ${LocalPath}    file/11
 Execute Command
     [Documentation]    Test Connection and Remove old file
     [Tags]    ZUTBLCOLPRJ
-    ${output}=    Execute Command    echo Hello SSHLibrary!
-    Should Be Equal    ${output}    Hello SSHLibrary!
     Remove file on FTP  ${File1}  ${LogFile1}
     Kill Globle DATA  ZCOLPRJ
 
